@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'dark_mode_provider.dart'; // Import the file you just created
+import 'dark_mode_provider.dart';
 
 import 'register.dart';
 import 'homepage.dart';
@@ -21,9 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Login Page',
-      theme: ThemeData(
-          // Your theme settings here
-          ),
+      theme: ThemeData(),
       home: const LoginPage(),
     );
   }
@@ -39,26 +37,21 @@ class LoginPage extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.only(
-                  top: 40.0), // Adjust the top padding as needed
+              padding: const EdgeInsets.only(top: 40.0),
               child: Container(
-                height: 250.0, // Adjust the height as needed
-                child: Image.asset(
-                    'assets/logo.png'), // Replace 'assets/logo.png' with your logo image path
+                height: 250.0,
+                child: Image.asset('assets/logo.png'),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(
-                  top: 40.0,
-                  left: 16.0), // Adjust the top and left padding as needed
+              padding: const EdgeInsets.only(top: 40.0, left: 16.0),
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
                   'Login to your account',
                   style: TextStyle(
-                    fontSize: 18.0, // Adjust the font size as needed
-                    fontWeight:
-                        FontWeight.bold, // Adjust the font weight as needed
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
@@ -69,25 +62,20 @@ class LoginPage extends StatelessWidget {
             ),
             SizedBox(height: 15.0),
             Container(
-              width: double.infinity, // Button width extends to screen width
-              padding: EdgeInsets.symmetric(
-                  horizontal: 20.0), // Adjust padding as needed
+              width: double.infinity,
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
               child: ElevatedButton(
                 onPressed: () {
-                  // Handle login logic here
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            HomePage()), // Replace RegisterPage() with the actual constructor of your Register page
+                    MaterialPageRoute(builder: (context) => HomePage()),
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Color(0xFF454545), // Set the button color to #454545
-                  padding: EdgeInsets.symmetric(
-                      vertical: 12.0), // Adjust vertical padding
-                  minimumSize: Size.fromHeight(50.0), // Set the button height
-                  elevation: 3, // Add a slight box shadow
+                  primary: Color(0xFF454545),
+                  padding: EdgeInsets.symmetric(vertical: 12.0),
+                  minimumSize: Size.fromHeight(50.0),
+                  elevation: 3,
                 ),
                 child: Text('Login'),
               ),
@@ -96,79 +84,59 @@ class LoginPage extends StatelessWidget {
             Text(
               'Or continue with social account',
               style: TextStyle(
-                fontSize: 16.0, // Adjust the font size as needed
+                fontSize: 16.0,
               ),
             ),
             SizedBox(height: 15.0),
             Container(
-              margin: EdgeInsets.symmetric(
-                  horizontal: 16.0), // Add horizontal padding
+              margin: EdgeInsets.symmetric(horizontal: 16.0),
               child: Column(
                 children: [
                   TextButton(
-                    onPressed: () {
-                      // Handle Apple login logic here
-                    },
+                    onPressed: () {},
                     style: TextButton.styleFrom(
-                      backgroundColor:
-                          Colors.black, // Set the background color to black
-                      primary: Colors.white, // Set the text color to white
-                      padding: EdgeInsets.symmetric(
-                          vertical: 12.0), // Adjust vertical padding
-                      minimumSize:
-                          Size.fromHeight(50.0), // Set the button height
-                      elevation: 3, // Add a slight box shadow
+                      backgroundColor: Colors.black,
+                      primary: Colors.white,
+                      padding: EdgeInsets.symmetric(vertical: 12.0),
+                      minimumSize: Size.fromHeight(50.0),
+                      elevation: 3,
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.asset(
-                          'assets/apple.jpeg', // Replace with the path to your Apple logo image
-                          height:
-                              24.0, // Adjust the height of the Apple logo as needed
+                          'assets/apple.jpeg',
+                          height: 24.0,
                         ),
-                        SizedBox(
-                            width:
-                                8.0), // Add spacing between the logo and text
+                        SizedBox(width: 8.0),
                         Text(
                           'Continue with Apple',
-                          style: TextStyle(
-                              fontSize: 16.0), // Adjust the font size as needed
+                          style: TextStyle(fontSize: 16.0),
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(
-                      height: 16.0), // Add vertical spacing between buttons
+                  SizedBox(height: 16.0),
                   TextButton(
-                    onPressed: () {
-                      // Handle Google login logic here
-                    },
+                    onPressed: () {},
                     style: TextButton.styleFrom(
-                      backgroundColor:
-                          Colors.white, // Set the background color to white
-                      primary: Colors.grey, // Set the text color to grey
-                      padding: EdgeInsets.symmetric(
-                          vertical: 12.0), // Adjust vertical padding
-                      minimumSize:
-                          Size.fromHeight(50.0), // Set the button height
-                      elevation: 3, // Add a slight box shadow
+                      backgroundColor: Colors.white,
+                      primary: Colors.grey,
+                      padding: EdgeInsets.symmetric(vertical: 12.0),
+                      minimumSize: Size.fromHeight(50.0),
+                      elevation: 3,
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.asset(
-                          'assets/google.jpeg', // Replace with the path to your Google logo image
-                          height:
-                              24.0, // Adjust the height of the Google logo as needed
+                          'assets/google.jpeg',
+                          height: 24.0,
                         ),
-                        SizedBox(
-                            width:
-                                8.0), // Add spacing between the logo and text
+                        SizedBox(width: 8.0),
                         Text(
                           'Continue with Google',
-                          style: TextStyle(
-                              fontSize: 16.0), // Adjust the font size as needed
+                          style: TextStyle(fontSize: 16.0),
                         ),
                       ],
                     ),
@@ -179,16 +147,13 @@ class LoginPage extends StatelessWidget {
             SizedBox(height: 15.0),
             TextButton(
               onPressed: () {
-                // Navigate to registration page
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          RegisterPage()), // Replace RegisterPage() with the actual constructor of your Register page
+                  MaterialPageRoute(builder: (context) => RegisterPage()),
                 );
               },
               style: TextButton.styleFrom(
-                primary: Color(0xFF454545), // Set the text color to #454545
+                primary: Color(0xFF454545),
               ),
               child: Text('Don\'t have an account? Register here'),
             ),
@@ -207,16 +172,14 @@ class LoginForm extends StatelessWidget {
         TextFormField(
           decoration: InputDecoration(
             labelText: 'Email',
-            // Add other input decoration properties as needed
           ),
         ),
         SizedBox(height: 10.0),
         TextFormField(
           decoration: InputDecoration(
             labelText: 'Password',
-            // Add other input decoration properties as needed
           ),
-          obscureText: true, // Hide the password
+          obscureText: true,
         ),
       ],
     );

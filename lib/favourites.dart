@@ -4,7 +4,7 @@ import 'profile.dart';
 import 'package:flutter/material.dart';
 import 'stable01.dart';
 import 'package:provider/provider.dart';
-import 'dark_mode_provider.dart'; // Import the file you just created
+import 'dark_mode_provider.dart'; 
 
 void main() {
   runApp(MaterialApp());
@@ -18,7 +18,7 @@ class FavouritesPage extends StatelessWidget {
 
     // Now you can use darkModeProvider.isDarkMode to conditionally set colors.
     Color backgroundColor =
-        darkModeProvider.isDarkMode ? Color(0xFF071E07) : Color(0xFFF6F3E7);
+        darkModeProvider.isDarkMode ? Color(0xFF071E07) : Color.fromARGB(255, 250, 249, 248);
     Color textColor =
         darkModeProvider.isDarkMode ? Color(0xFFF6F3E7) : Color(0xFF454545);
     return Scaffold(

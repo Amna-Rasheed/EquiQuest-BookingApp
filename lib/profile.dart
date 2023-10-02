@@ -23,12 +23,10 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    final darkModeProvider = Provider.of<DarkModeProvider>(
-        context); // <-- Access the DarkModeProvider
-
-    // Now you can use darkModeProvider.isDarkMode to conditionally set colors.
-    Color backgroundColor =
-        darkModeProvider.isDarkMode ? Color(0xFF071E07) : Colors.white;
+    final darkModeProvider = Provider.of<DarkModeProvider>(context);
+    Color backgroundColor = darkModeProvider.isDarkMode
+        ? Color(0xFF071E07)
+        : Color.fromARGB(255, 250, 249, 248);
     Color textColor = darkModeProvider.isDarkMode ? Colors.white : Colors.black;
     return Builder(
       builder: (context) {
@@ -66,14 +64,12 @@ class _ProfilePageState extends State<ProfilePage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Stack(
-                            alignment: Alignment
-                                .bottomRight, // Align the camera icon to the bottom right corner
+                            alignment: Alignment.bottomRight,
                             children: [
                               CircleAvatar(
                                 radius: 60.0,
                                 backgroundImage: _image != null
-                                    ? Image.file(_image!)
-                                        .image // Cast ImageProvider<Object> to ImageProvider<Image>
+                                    ? Image.file(_image!).image
                                     : AssetImage('assets/profilepic.jpg'),
                               ),
                               Container(
@@ -165,7 +161,6 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                     ),
                     SizedBox(height: 20.0),
-                    // Profile settings list wrapped in a container
                     Container(
                       margin: EdgeInsets.symmetric(
                         horizontal: 16.0,
@@ -187,8 +182,6 @@ class _ProfilePageState extends State<ProfilePage> {
                         children: [
                           ListTile(
                             onTap: () {
-                              // Handle logout action and navigate to login page
-                              // Replace 'LoginScreen()' with your login page
                               Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
@@ -267,17 +260,14 @@ class _ProfilePageState extends State<ProfilePage> {
               selectedItemColor: Colors.white,
               unselectedItemColor: Colors.white.withOpacity(0.6),
               onTap: (index) {
-                // Handle navigation to different pages here based on the index
                 switch (index) {
                   case 0:
-                    // Navigate to Home Page (homepage.dart)
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(builder: (context) => HomePage()),
                     );
                     break;
                   case 1:
-                    // Navigate to Favourites Page
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(builder: (context) => FavouritesPage()),

@@ -5,7 +5,7 @@ import 'profile.dart';
 import 'calendar.dart';
 import 'upcoming.dart';
 import 'package:provider/provider.dart';
-import 'dark_mode_provider.dart'; // Import the file you just created
+import 'dark_mode_provider.dart';
 
 void main() {
   runApp(MaterialApp());
@@ -14,12 +14,10 @@ void main() {
 class CancelPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final darkModeProvider = Provider.of<DarkModeProvider>(
-        context); // <-- Access the DarkModeProvider
-
-    // Now you can use darkModeProvider.isDarkMode to conditionally set colors.
-    Color backgroundColor =
-        darkModeProvider.isDarkMode ? Color(0xFF071E07) : Color(0xFFF6F3E7);
+    final darkModeProvider = Provider.of<DarkModeProvider>(context);
+    Color backgroundColor = darkModeProvider.isDarkMode
+        ? Color(0xFF071E07)
+        : Color.fromARGB(255, 250, 249, 248);
     Color textColor =
         darkModeProvider.isDarkMode ? Color(0xFFF6F3E7) : Color(0xFF454545);
     return Scaffold(
@@ -46,7 +44,7 @@ class CancelPage extends StatelessWidget {
                     'My Booking Schedule',
                     style: TextStyle(
                       color: textColor,
-                      fontSize: 25.0, // Increased font size
+                      fontSize: 25.0,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -55,8 +53,7 @@ class CancelPage extends StatelessWidget {
             ),
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment
-                .spaceEvenly, // To evenly space the buttons horizontally
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               ElevatedButton(
                 onPressed: () {
@@ -72,7 +69,7 @@ class CancelPage extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30.0),
                   ),
-                  elevation: 4, // Add box shadow
+                  elevation: 4,
                 ),
                 child: Text('Completed'),
               ),
@@ -90,14 +87,12 @@ class CancelPage extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30.0),
                   ),
-                  elevation: 4, // Add box shadow
+                  elevation: 4,
                 ),
                 child: Text('Upcoming'),
               ),
               ElevatedButton(
-                onPressed: () {
-                  // Handle canceled button press
-                },
+                onPressed: () {},
                 style: ElevatedButton.styleFrom(
                   padding: EdgeInsets.all(16.0),
                   primary: Colors.white,
@@ -105,7 +100,7 @@ class CancelPage extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30.0),
                   ),
-                  elevation: 4, // Add box shadow
+                  elevation: 4,
                 ),
                 child: Text('Canceled'),
               ),
@@ -113,16 +108,12 @@ class CancelPage extends StatelessWidget {
           ),
           SizedBox(height: 16.0),
           Container(
-            padding: EdgeInsets.symmetric(
-                horizontal:
-                    16.0), // Horizontal padding for the original text box
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
             child: Container(
-              padding: EdgeInsets.all(
-                  16.0), // Padding for the original text box content
+              padding: EdgeInsets.all(16.0),
               decoration: BoxDecoration(
                 color: Color(0xFFD9D9D9),
-                borderRadius: BorderRadius.circular(
-                    10.0), // Rounded edges for the original text box
+                borderRadius: BorderRadius.circular(10.0),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -150,23 +141,16 @@ class CancelPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
-                      height:
-                          16.0), // Space between text and "Completed" button
+                  SizedBox(height: 16.0),
                   Container(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: 2.0), // Horizontal padding for the InkWell
+                    padding: EdgeInsets.symmetric(horizontal: 2.0),
                     child: InkWell(
-                      onTap: () {
-                        // Handle Completed button tap
-                      },
+                      onTap: () {},
                       child: Container(
-                        padding: EdgeInsets.all(
-                            8.0), // Padding for the InkWell content
+                        padding: EdgeInsets.all(8.0),
                         decoration: BoxDecoration(
                           color: Color(0xFF454545),
-                          borderRadius: BorderRadius.circular(
-                              10.0), // Rounded edges for the InkWell
+                          borderRadius: BorderRadius.circular(10.0),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.black.withOpacity(0.2),
@@ -195,11 +179,10 @@ class CancelPage extends StatelessWidget {
       ),
       bottomNavigationBar: Theme(
         data: ThemeData(
-          canvasColor: Color(
-              0xFF454545), // Set the background color of the BottomNavigationBar
+          canvasColor: Color(0xFF454545),
         ),
         child: BottomNavigationBar(
-          currentIndex: 2, // Set the initial selected tab (Home)
+          currentIndex: 2,
           items: [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
@@ -218,22 +201,17 @@ class CancelPage extends StatelessWidget {
               label: 'Profile',
             ),
           ],
-          selectedItemColor: Colors.white, // Set the selected item color
-          unselectedItemColor:
-              Colors.white.withOpacity(0.6), // Set the unselected item color
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.white.withOpacity(0.6),
           onTap: (index) {
-            // Handle navigation to different pages here based on the index
             switch (index) {
               case 0:
-                // Navigate to Home Page (homepage.dart)
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => HomePage()),
                 );
                 break;
               case 1:
-                // Navigate to Favourites Page
-                // You can replace this with your actual implementation
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => FavouritesPage()),

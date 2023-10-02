@@ -25,8 +25,9 @@ class _BookingPageState extends State<BookingPage> {
         context); // <-- Access the DarkModeProvider
 
     // Now you can use darkModeProvider.isDarkMode to conditionally set colors.
-    Color backgroundColor =
-        darkModeProvider.isDarkMode ? Color(0xFF071E07) : Color(0xFFF6F3E7);
+    Color backgroundColor = darkModeProvider.isDarkMode
+        ? Color(0xFF071E07)
+        : Color.fromARGB(255, 246, 245, 241);
     Color textColor =
         darkModeProvider.isDarkMode ? Color(0xFFF6F3E7) : Color(0xFF454545);
     return Scaffold(
@@ -43,12 +44,11 @@ class _BookingPageState extends State<BookingPage> {
               height: MediaQuery.of(context).size.height /
                   2, // Half of the screen height
               child: Container(
-                height: double
-                    .infinity, // Allow the calendar to take up the entire height of the Container
+                height: double.infinity,
                 child: SfCalendar(
                   backgroundColor: darkModeProvider.isDarkMode
                       ? Color(0xFF071E07)
-                      : Color(0xFFF6F3E7),
+                      : Color.fromARGB(255, 247, 246, 243),
                   view: CalendarView.month,
                   showNavigationArrow: true,
                   selectionDecoration: BoxDecoration(
@@ -94,8 +94,7 @@ class _BookingPageState extends State<BookingPage> {
             _buildButtonRow(context, ['14:30', '15:30', '16:30']),
             SizedBox(height: 16.0),
             Container(
-              padding: EdgeInsets.symmetric(
-                  horizontal: 16.0), // Horizontal padding for the InkWell
+              padding: EdgeInsets.symmetric(horizontal: 16.0),
               child: InkWell(
                 onTap: () {
                   Navigator.pushReplacement(
@@ -104,8 +103,7 @@ class _BookingPageState extends State<BookingPage> {
                   );
                 },
                 child: Container(
-                  padding:
-                      EdgeInsets.all(8.0), // Padding for the InkWell content
+                  padding: EdgeInsets.all(8.0),
                   decoration: BoxDecoration(
                     color: Color(0xFF454545),
                     borderRadius: BorderRadius.circular(10.0),
@@ -135,11 +133,10 @@ class _BookingPageState extends State<BookingPage> {
       )),
       bottomNavigationBar: Theme(
         data: ThemeData(
-          canvasColor: Color(
-              0xFF454545), // Set the background color of the BottomNavigationBar
+          canvasColor: Color(0xFF454545),
         ),
         child: BottomNavigationBar(
-          currentIndex: 2, // Set the initial selected tab (Home)
+          currentIndex: 2,
           items: [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
@@ -158,11 +155,9 @@ class _BookingPageState extends State<BookingPage> {
               label: 'Profile',
             ),
           ],
-          selectedItemColor: Colors.white, // Set the selected item color
-          unselectedItemColor:
-              Colors.white.withOpacity(0.6), // Set the unselected item color
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.white.withOpacity(0.6),
           onTap: (index) {
-            // Handle navigation to different pages here based on the index
             switch (index) {
               case 0:
                 Navigator.pushReplacement(
@@ -203,7 +198,6 @@ class _BookingPageState extends State<BookingPage> {
           padding: const EdgeInsets.all(16.0),
           child: ElevatedButton(
             onPressed: () {
-              // Handle button click for the selected time
               setState(() {
                 _selectedTime = time; // Update the selected time
               });
@@ -228,8 +222,8 @@ class _BookingPageState extends State<BookingPage> {
             style: ElevatedButton.styleFrom(
               primary: (_selectedTime == time)
                   ? Color(0xFF454545) // Selected time color
-                  : Colors.grey, // Default color
-              onPrimary: Colors.white, // Text color
+                  : Colors.grey,
+              onPrimary: Colors.white,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0),
               ),

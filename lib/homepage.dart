@@ -17,12 +17,10 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final darkModeProvider = Provider.of<DarkModeProvider>(
-        context); // <-- Access the DarkModeProvider
-
-    // Now you can use darkModeProvider.isDarkMode to conditionally set colors.
-    Color backgroundColor =
-        darkModeProvider.isDarkMode ? Color(0xFF071E07) : Color(0xFFF6F3E7);
+    final darkModeProvider = Provider.of<DarkModeProvider>(context);
+    Color backgroundColor = darkModeProvider.isDarkMode
+        ? Color(0xFF071E07)
+        : Color.fromARGB(255, 244, 243, 241);
     Color textColor = darkModeProvider.isDarkMode ? Colors.white : Colors.black;
     return Container(
       child: Scaffold(
@@ -36,8 +34,8 @@ class HomePage extends StatelessWidget {
               child: Row(
                 children: [
                   Image.asset(
-                    'assets/logo-small.png', // Replace with your logo image path
-                    height: 45.0, // Adjust the height to match the search bar
+                    'assets/logo-small.png',
+                    height: 45.0,
                   ),
                   SizedBox(width: 16.0),
                   Expanded(
@@ -48,26 +46,20 @@ class HomePage extends StatelessWidget {
                           color: textColor.withOpacity(0.5),
                         ),
                         border: OutlineInputBorder(
-                          borderRadius:
-                              BorderRadius.circular(10), // For border radius
+                          borderRadius: BorderRadius.circular(10),
                           borderSide: BorderSide(
-                              color: textColor.withOpacity(0.5),
-                              width: 1), // Add this line for border color
+                              color: textColor.withOpacity(0.5), width: 1),
                         ),
                         enabledBorder: OutlineInputBorder(
-                          borderRadius:
-                              BorderRadius.circular(50.0), // For border radius
+                          borderRadius: BorderRadius.circular(50.0),
                           borderSide: BorderSide(
-                              color: textColor.withOpacity(0.5),
-                              width: 1), // Add this line for border color
+                              color: textColor.withOpacity(0.5), width: 1),
                         ),
                       ),
                     ),
                   ),
                   IconButton(
-                    onPressed: () {
-                      // Handle search button press
-                    },
+                    onPressed: () {},
                     icon: Icon(Icons.search, color: textColor),
                   ),
                 ],
@@ -96,48 +88,39 @@ class HomePage extends StatelessWidget {
                         child: Row(
                           children: [
                             ElevatedButton(
-                              onPressed: () {
-                                // Handle button tap for "Pony rides"
-                              },
+                              onPressed: () {},
                               style: ElevatedButton.styleFrom(
-                                primary: Color(
-                                    0xFF454545), // Set button color to #454545
+                                primary: Color(0xFF454545),
                               ),
                               child: Text('Pony rides'),
                             ),
                             SizedBox(
-                              width: 16.0, // Adjust spacing between buttons
+                              width: 16.0,
                             ),
                             ElevatedButton(
-                              onPressed: () {
-                                // Handle button tap for "Riding lessons"
-                              },
+                              onPressed: () {},
                               style: ElevatedButton.styleFrom(
-                                primary: Color(
-                                    0xFF454545), // Set button color to #454545
+                                primary: Color(0xFF454545),
                               ),
                               child: Text('Riding lessons'),
                             ),
                             SizedBox(
-                              width: 16.0, // Adjust spacing between buttons
+                              width: 16.0,
                             ),
                             ElevatedButton(
-                              onPressed: () {
-                                // Handle button tap for "Trail riding"
-                              },
+                              onPressed: () {},
                               style: ElevatedButton.styleFrom(
-                                primary: Color(
-                                    0xFF454545), // Set button color to #454545
+                                primary: Color(0xFF454545),
                               ),
                               child: Text('Trail riding'),
                             ),
                             SizedBox(
-                              width: 16.0, // Adjust spacing between buttons
+                              width: 16.0,
                             ),
                           ],
                         ),
                       ),
-                      SizedBox(height: 16.0), // Add spacing between buttons
+                      SizedBox(height: 16.0),
                       Text(
                         'Scheduled Today',
                         style: TextStyle(
@@ -149,23 +132,21 @@ class HomePage extends StatelessWidget {
                       SizedBox(height: 16.0),
                       Container(
                         decoration: BoxDecoration(
-                          color: Color(0xFFcccccc), // Grey background color
-                          borderRadius:
-                              BorderRadius.circular(12.0), // Rounded edges
+                          color: Color(0xFFcccccc),
+                          borderRadius: BorderRadius.circular(12.0),
                         ),
-                        padding: EdgeInsets.symmetric(
-                            vertical: 16.0), // Padding top and bottom
+                        padding: EdgeInsets.symmetric(vertical: 16.0),
                         child: Center(
                           child: Text(
                             'Nothing Scheduled Today',
                             style: TextStyle(
                               fontSize: 16.0,
-                              fontWeight: FontWeight.bold, // Bold text
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),
                       ),
-                      SizedBox(height: 16.0), // Add spacing between headings
+                      SizedBox(height: 16.0),
                       Text(
                         'Top Stables',
                         style: TextStyle(
@@ -174,30 +155,21 @@ class HomePage extends StatelessWidget {
                           color: textColor,
                         ),
                       ),
-                      SizedBox(height: 16.0), // Add spacing below "Top Stables"
-
-                      // Stable button
+                      SizedBox(height: 16.0),
                       Row(
                         children: [
-                          // Large image on the left
                           Container(
                             width: 100.0,
                             height: 100.0,
                             decoration: BoxDecoration(
                               image: DecorationImage(
-                                image: AssetImage(
-                                    'assets/premadasa.png'), // Replace with your stable image path
+                                image: AssetImage('assets/premadasa.png'),
                                 fit: BoxFit.cover,
                               ),
                               borderRadius: BorderRadius.circular(12.0),
                             ),
                           ),
-
-                          SizedBox(
-                              width:
-                                  16.0), // Add spacing between image and text
-
-                          // Text on the right
+                          SizedBox(width: 16.0),
                           Expanded(
                             child: TextButton(
                               onPressed: () {
@@ -208,14 +180,11 @@ class HomePage extends StatelessWidget {
                                 );
                               },
                               style: TextButton.styleFrom(
-                                backgroundColor:
-                                    Color(0xFFcccccc), // Grey background color
+                                backgroundColor: Color(0xFFcccccc),
                               ),
                               child: Container(
-                                // Same width as the image
-                                height: 100.0, // Same height as the image
-                                padding: EdgeInsets.all(
-                                    16.0), // Add internal padding
+                                height: 100.0,
+                                padding: EdgeInsets.all(16.0),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -224,16 +193,14 @@ class HomePage extends StatelessWidget {
                                       style: TextStyle(
                                         fontSize: 18.0,
                                         fontWeight: FontWeight.bold,
-                                        color: Colors
-                                            .black, // Set text color to black
+                                        color: Colors.black,
                                       ),
                                     ),
                                     Text(
                                       'Nugegoda',
                                       style: TextStyle(
                                         fontSize: 16.0,
-                                        color: Colors
-                                            .black, // Set text color to black
+                                        color: Colors.black,
                                       ),
                                     ),
                                     SizedBox(height: 5.0),
@@ -258,39 +225,31 @@ class HomePage extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(height: 16.0), // Add spacing between buttons
+                      SizedBox(height: 16.0),
                       Row(
                         children: [
-                          // Large image on the left
                           Container(
                             width: 100.0,
                             height: 100.0,
                             decoration: BoxDecoration(
                               image: DecorationImage(
-                                image: AssetImage(
-                                    'assets/Ceylon riding club.jpg'), // Replace with your stable image path
+                                image:
+                                    AssetImage('assets/Ceylon riding club.jpg'),
                                 fit: BoxFit.cover,
                               ),
                               borderRadius: BorderRadius.circular(12.0),
                             ),
                           ),
-                          SizedBox(
-                              width:
-                                  16.0), // Add spacing between image and text
+                          SizedBox(width: 16.0),
                           Expanded(
                             child: TextButton(
-                              onPressed: () {
-                                // Handle button tap (navigate to stable page)
-                              },
+                              onPressed: () {},
                               style: TextButton.styleFrom(
-                                backgroundColor:
-                                    Color(0xFFcccccc), // Grey background color
+                                backgroundColor: Color(0xFFcccccc),
                               ),
                               child: Container(
-                                // Same width as the image
-                                height: 100.0, // Same height as the image
-                                padding: EdgeInsets.all(
-                                    16.0), // Add internal padding
+                                height: 100.0,
+                                padding: EdgeInsets.all(16.0),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -299,16 +258,14 @@ class HomePage extends StatelessWidget {
                                       style: TextStyle(
                                         fontSize: 18.0,
                                         fontWeight: FontWeight.bold,
-                                        color: Colors
-                                            .black, // Set text color to black
+                                        color: Colors.black,
                                       ),
                                     ),
                                     Text(
                                       'Port City',
                                       style: TextStyle(
                                         fontSize: 16.0,
-                                        color: Colors
-                                            .black, // Set text color to black
+                                        color: Colors.black,
                                       ),
                                     ),
                                     SizedBox(height: 5.0),
@@ -342,11 +299,10 @@ class HomePage extends StatelessWidget {
         ),
         bottomNavigationBar: Theme(
           data: ThemeData(
-            canvasColor: Color(
-                0xFF454545), // Set the background color of the BottomNavigationBar
+            canvasColor: Color(0xFF454545),
           ),
           child: BottomNavigationBar(
-            currentIndex: 0, // Set the initial selected tab (Home)
+            currentIndex: 0,
             items: [
               BottomNavigationBarItem(
                 icon: Icon(Icons.home),
@@ -365,11 +321,9 @@ class HomePage extends StatelessWidget {
                 label: 'Profile',
               ),
             ],
-            selectedItemColor: Colors.white, // Set the selected item color
-            unselectedItemColor:
-                Colors.white.withOpacity(0.6), // Set the unselected item color
+            selectedItemColor: Colors.white,
+            unselectedItemColor: Colors.white.withOpacity(0.6),
             onTap: (index) {
-              // Handle navigation to different pages here based on the index
               switch (index) {
                 case 0:
                   Navigator.pushReplacement(
