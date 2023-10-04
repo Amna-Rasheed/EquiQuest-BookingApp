@@ -24,9 +24,8 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     final darkModeProvider = Provider.of<DarkModeProvider>(context);
-    Color backgroundColor = darkModeProvider.isDarkMode
-        ? Color(0xFF071E07)
-        : Color.fromARGB(255, 250, 249, 248);
+    Color backgroundColor =
+        darkModeProvider.isDarkMode ? Color(0xFF071E07) : Color(0XFFFFFFFF);
     Color textColor = darkModeProvider.isDarkMode ? Colors.white : Colors.black;
     return Builder(
       builder: (context) {

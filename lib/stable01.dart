@@ -32,11 +32,13 @@ class _Stable01PageState extends State<Stable01Page> {
         context); // <-- Access the DarkModeProvider
 
     // Now you can use darkModeProvider.isDarkMode to conditionally set colors.
-    Color backgroundColor = darkModeProvider.isDarkMode
-        ? Color(0xFF071E07)
-        : Color.fromARGB(255, 245, 244, 242);
-    Color textColor =
-        darkModeProvider.isDarkMode ? Color(0xFFF6F3E7) : Color(0xFF454545);
+    // Color backgroundColor =
+    //     darkModeProvider.isDarkMode ? Color(0xFF071E07) : Color(0XFFFFFFFF);
+    // Color textColor =
+    //     darkModeProvider.isDarkMode ? Color(0xFFF6F3E7) : Color(0xFF454545);
+    Color backgroundColor =
+        darkModeProvider.isDarkMode ? Color(0xFF071E07) : Color(0XFFFFFFFF);
+    Color textColor = darkModeProvider.isDarkMode ? Colors.white : Colors.black;
     return Scaffold(
         backgroundColor: backgroundColor,
         appBar: AppBar(

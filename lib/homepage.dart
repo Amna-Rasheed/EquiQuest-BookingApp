@@ -18,10 +18,13 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final darkModeProvider = Provider.of<DarkModeProvider>(context);
-    Color backgroundColor = darkModeProvider.isDarkMode
-        ? Color(0xFF071E07)
-        : Color.fromARGB(255, 244, 243, 241);
+    Color backgroundColor =
+        darkModeProvider.isDarkMode ? Color(0xFF071E07) : Color(0XFFFFFFFF);
     Color textColor = darkModeProvider.isDarkMode ? Colors.white : Colors.black;
+    // Color backgroundColor = darkModeProvider.isDarkMode
+    //     ? Color(0xFF071E07)
+    //     : Color.fromARGB(255, 244, 243, 241);
+    // Color textColor = darkModeProvider.isDarkMode ? Colors.white : Colors.black;
     return Container(
       child: Scaffold(
         backgroundColor: backgroundColor,

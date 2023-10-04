@@ -25,11 +25,13 @@ class _BookingPageState extends State<BookingPage> {
         context); // <-- Access the DarkModeProvider
 
     // Now you can use darkModeProvider.isDarkMode to conditionally set colors.
-    Color backgroundColor = darkModeProvider.isDarkMode
-        ? Color(0xFF071E07)
-        : Color.fromARGB(255, 246, 245, 241);
-    Color textColor =
-        darkModeProvider.isDarkMode ? Color(0xFFF6F3E7) : Color(0xFF454545);
+    // Color backgroundColor =
+    //     darkModeProvider.isDarkMode ? Color(0xFF071E07) : Color(0xFFFFFFFF);
+    // Color textColor =
+    //     darkModeProvider.isDarkMode ? Color(0xFFF6F3E7) : Color(0xFF454545);
+    Color backgroundColor =
+        darkModeProvider.isDarkMode ? Color(0xFF071E07) : Color(0XFFFFFFFF);
+    Color textColor = darkModeProvider.isDarkMode ? Colors.white : Colors.black;
     return Scaffold(
       backgroundColor: backgroundColor,
       appBar: AppBar(
@@ -48,7 +50,7 @@ class _BookingPageState extends State<BookingPage> {
                 child: SfCalendar(
                   backgroundColor: darkModeProvider.isDarkMode
                       ? Color(0xFF071E07)
-                      : Color.fromARGB(255, 247, 246, 243),
+                      : Color(0xFFFFFFFF),
                   view: CalendarView.month,
                   showNavigationArrow: true,
                   selectionDecoration: BoxDecoration(

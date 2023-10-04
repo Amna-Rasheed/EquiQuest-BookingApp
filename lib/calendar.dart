@@ -15,13 +15,13 @@ class CalendarPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final darkModeProvider = Provider.of<DarkModeProvider>(context);
-
-    Color backgroundColor = darkModeProvider.isDarkMode
-        ? Color(0xFF071E07)
-        : Color.fromARGB(255, 250, 249, 248);
-    Color textColor = darkModeProvider.isDarkMode
-        ? Color.fromARGB(255, 244, 243, 242)
-        : Color(0xFF454545);
+    Color backgroundColor =
+        darkModeProvider.isDarkMode ? Color(0xFF071E07) : Color(0XFFFFFFFF);
+    Color textColor = darkModeProvider.isDarkMode ? Colors.white : Colors.black;
+    // Color backgroundColor =
+    //     darkModeProvider.isDarkMode ? Color(0xFF071E07) : Color(0XFFFFFFFF);
+    // Color textColor =
+    //     darkModeProvider.isDarkMode ? Color(0XFFFFFFFF) : Color(0xFF454545);
     return Scaffold(
       backgroundColor: backgroundColor,
       body: Column(
